@@ -16,6 +16,17 @@
  @import 'ratchet';
  @import 'ratchicons';
 
+.into-headline{
+  text-align: center;
+}
+.jotly-video{
+  text-align: center;
+  a {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
 .button_to .like{
   @extend .btn;
   @extend .btn-primary;
