@@ -1,0 +1,16 @@
+<% content_for :button_left do %>
+  <a class="icon icon-left-nav pull-left"
+    href="<%= root_path %>"></a>
+<% end %>
+
+<div class="content-padded">
+  <h2>Your Info</h2>
+  <%= form_for @user, url: user_path do |f| %>
+    <%= f.email_field :email, placeholder: 'tyrion@house-lannister.got' %>
+    <%= f.submit 'Sign Up!', class: 'btn btn-positive btn-block' %>
+  <% end %>
+
+  <a class="btn btn-positive btn-outlined pull-right" href="<%= new_session_path %>">
+    Sign-In!
+  </a>
+</div>

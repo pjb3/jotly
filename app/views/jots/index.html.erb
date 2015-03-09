@@ -1,4 +1,13 @@
-<div class="inset">
+<% content_for :button_left do %>
+  <a class="icon icon-person pull-left"
+    href="<%= user_path %>"></a>
+<% end %>
+
+<% content_for :button_right do %>
+  <a href="<%= new_jot_path %>" class="icon icon-compose pull-right"></a>
+<% end %>
+
+<div class="content-padded">
   <h1>Jots</h1>
 </div>
 

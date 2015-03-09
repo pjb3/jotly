@@ -1,0 +1,17 @@
+<% content_for :button_right do %>
+  <a class="icon icon-right-nav pull-right"
+    href="<%= jots_path %>"></a>
+<% end %>
+
+<div class="content-padded">
+  <h2>Your Info</h2>
+
+  <h3><%= current_user.email %></h3>
+
+  <a href="<%= edit_user_path %>"
+    class="btn btn-positive btn-block btn-outlined">
+    Edit
+  </a>
+
+  <%= button_to 'Sign-Out', session_path, method: :delete, data: {confirm: "Really sign-out?"} %>
+</div>

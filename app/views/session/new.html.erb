@@ -1,0 +1,27 @@
+<% content_for :button_left do %>
+  <a class="icon icon-left-nav pull-left"
+    href="<%= root_path %>"></a>
+<% end %>
+
+<div class="content-padded">
+  <h2>Sign-In</h2>
+  <%= form_tag session_path do %>
+    <%= email_field_tag :email, nil, placeholder: 'tyrion@house-lannister.got' %>
+    <%= submit_tag 'Sign In!', class: 'btn btn-positive btn-block' %>
+  <% end %>
+
+  <a class="btn btn-positive btn-outlined pull-right" href="<%= new_user_path %>">
+    Sign-Up
+  </a>
+
+  <% if User.all.any? %>
+    <p>Some emails that might work:</p>
+    <ul>
+      <% User.limit(10).order('email').each do |user| %>
+        <li><%= user.email %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+</div>

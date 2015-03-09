@@ -1,0 +1,14 @@
+<% content_for :button_left do %>
+  <a class="icon icon-close pull-left"
+    href="<%= user_path %>"></a>
+<% end %>
+<% content_for :button_right do %>
+
+<% end %>
+
+<div class="content-padded">
+  <%= form_for current_user, url: user_path do |f| %>
+    <%= f.email_field :email, placeholder: 'tyrion@house-lannister.got' %>
+    <%= f.submit 'Save', class: 'btn btn-positive btn-block' %>
+  <% end %>
+</div>
