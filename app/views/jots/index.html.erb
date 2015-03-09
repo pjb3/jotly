@@ -1,0 +1,29 @@
+<div class="inset">
+  <h1>Jots</h1>
+</div>
+
+<ul class="table-view">
+  <% if @jots.any? %>
+    <% @jots.each do |jot| %>
+      <li class="table-view-cell media">
+        <a class="navigate-right" href="<%= jot_path(jot) %>">
+          <img class="media-object pull-left" src="http://placehold.it/42x42">
+          <div class="media-body">
+            <%= jot.content %>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  <% else %>
+    <li class="table-view-cell media">
+      <a class="navigate-right">
+        <img class="media-object pull-left" src="http://placehold.it/42x42">
+        <div class="media-body">
+          No Jots!!
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+        </div>
+      </a>
+    </li>
+  <% end %>
+</ul>
