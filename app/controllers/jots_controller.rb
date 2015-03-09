@@ -1,6 +1,6 @@
 class JotsController < ApplicationController
   def index
-    @jots = Jot.all
+    @jots = Jot.order('created_at desc')
   end
 
   def new
@@ -8,7 +8,7 @@ class JotsController < ApplicationController
   end
 
   def create
-    jot = Jot.create!(jot_params)
+    jot = Jot.create!(new_jot_params)
     redirect_to jots_path
   end
 
@@ -32,6 +32,10 @@ class JotsController < ApplicationController
   end
 
   private
+  def new_jot_params
+    jot_params.merge(user: current_user)
+  end
+
   def jot_params
     params.require(:jot).permit(:content)
   end
