@@ -12,7 +12,7 @@ if Rails.env.development?
   User.delete_all
 
   50.times do
-    User.create(email: Faker::Internet.email)
+    User.create!(email: Faker::Internet.email)
   end
 
   User.all.flat_map {|user| [user] * 10 }.shuffle.each do |user|
