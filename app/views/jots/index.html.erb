@@ -19,7 +19,7 @@
           <img class="media-object pull-left" src="http://placehold.it/42x42">
           <div class="media-body">
             <%= jot.content %>
-            <p><%= jot.user.email %></p>
+            <p><%= jot_author_or_second_person(jot) %></p>
             <div>
               <strong><%= jot.likes.size %> Likes</strong>
             </div>

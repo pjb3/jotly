@@ -6,14 +6,13 @@
 <div class="content-padded">
 
   <h3><%= @jot.content %></h3>
+  <p>
+    <small>
+      Posted by: <%= jot_author_or_second_person(@jot) %>
+    </small>
+  </p>
 
-  <% if @jot.likes.size == 0 %>
-  <% else %>
-    Liked by <%= @jot.likes.first(3).map { |like|  "<a>#{like.user.name}</a>" }.join(', ').html_safe %>
-    <% if @jot.likes.size > 3 %>
-      and <%= @jot.likes.size - 3 %> others
-    <% end %>
-  <% end %>
+  <p><%= like_list(@jot) %></p>
 
   <p>
     <% if has_not_liked?(@jot) %>
