@@ -1,9 +1,11 @@
 <h1> Jot central </h1>
 
 <% @jots.each do |jot| %>
-  <li>
-    <%= jot.message %>
+  <ul class="table-view">
+    <li class="table-view-cell"><%= jot.message %>
+      <%= link_to "Edit", edit_jot_path(jot) %>
+    </li>
 
-    <%= link_to "Edit", edit_jot_path(jot) %>
-  </li>
+
+    </li>
 <% end %>
