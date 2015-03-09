@@ -1,0 +1,3 @@
+class JotController < ApplicationController
+  
+end
