@@ -2,7 +2,10 @@
 
 <% @jots.each do |jot| %>
   <ul class="table-view">
-    <li class="table-view-cell"><%= jot.message %>
+    <li class="table-view-cell">
+      <a class="navigate-right">
+        <%= jot.message %>
+      </a>
       <%= link_to "Edit", edit_jot_path(jot) %>
     </li>
 
