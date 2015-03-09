@@ -7,13 +7,30 @@
 
   <h3><%= @jot.content %></h3>
 
-  <% if can_edit?(@jot) %>
-    <a href="<%= edit_jot_path(@jot) %>"
-      class="btn btn-positive btn-block btn-outlined">
-      Edit
-    </a>
+  <% if @jot.likes.size == 0 %>
+  <% else %>
+    Liked by <%= @jot.likes.first(3).map { |like|  "<a>#{like.user.name}</a>" }.join(', ').html_safe %>
+    <% if @jot.likes.size > 3 %>
+      and <%= @jot.likes.size - 3 %> others
+    <% end %>
+  <% end %>
 
-    <%= button_to 'Destroy', jot_path(@jot), method: :delete, data: {confirm: "Delete jot '#{@jot.content}'?"} %>
+  <p>
+    <% if has_not_liked?(@jot) %>
+      <%= button_to 'Like', like_jot_path(@jot), class: 'like' %>
+    <% else %>
+      <%= button_to 'Unlike', unlike_jot_path(@jot), class: 'unlike' %>
+    <% end %>
+  </p>
+
+  <% if can_edit?(@jot) %>
+    <p>
+      <a href="<%= edit_jot_path(@jot) %>"
+        class="btn btn-block btn-outlined">
+        Edit
+      </a>
+    </p>
+    <%= button_to 'Destroy', jot_path(@jot), method: :delete, class: 'destroy', data: {confirm: "Delete jot '#{@jot.content}'?"} %>
   <% end %>
 </div>
 

@@ -16,17 +16,26 @@
  @import 'ratchet';
  @import 'ratchicons';
 
-.button_to{
-  display:flex;
-  flex-direction: row-reverse;
+.button_to .like{
+  @extend .btn;
+  @extend .btn-primary;
 
-  [type="submit"]{
-    @extend .btn;
-    @extend .btn-outlined;
-    @extend .btn-negative;
+  width: inherit;
+}
 
-    width: inherit;
-    flex: 0 0 auto;
-    align-self: flex-end;
-  }
+.button_to .unlike{
+  @extend .btn;
+  @extend .btn-outlined;
+  @extend .btn-primary;
+
+  width: inherit;
+}
+
+.button_to .destroy{
+  @extend .btn;
+  @extend .btn-outlined;
+  @extend .btn-negative;
+
+  width: inherit;
+  float: right;
 }
