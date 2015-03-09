@@ -7,11 +7,13 @@
 
   <h3><%= @jot.content %></h3>
 
-  <a href="<%= edit_jot_path(@jot) %>"
-    class="btn btn-positive btn-block btn-outlined">
-    Edit
-  </a>
+  <% if can_edit?(@jot) %>
+    <a href="<%= edit_jot_path(@jot) %>"
+      class="btn btn-positive btn-block btn-outlined">
+      Edit
+    </a>
 
-  <%= button_to 'Destroy', jot_path(@jot), method: :delete, data: {confirm: "Delete jot '#{@jot.content}'?"} %>
+    <%= button_to 'Destroy', jot_path(@jot), method: :delete, data: {confirm: "Delete jot '#{@jot.content}'?"} %>
+  <% end %>
 </div>
 
