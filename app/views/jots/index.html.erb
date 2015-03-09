@@ -3,5 +3,7 @@
 <% @jots.each do |jot| %>
   <li>
     <%= jot.message %>
+
+    <%= link_to "Edit", edit_jot_path(jot) %>
   </li>
 <% end %>
