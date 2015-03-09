@@ -1,1 +1,10 @@
 <h1> Make a jot </h1>
+
+<%= form_for @jot do |f|
+
+    <%= f.label :message %>
+    <%= f.text_area :message %>
+
+    <%= f.submit %>
+
+<% end %>
