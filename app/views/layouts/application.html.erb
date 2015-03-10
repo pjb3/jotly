@@ -31,6 +31,17 @@
 
   <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
   <div class="content">
+    <% if flash[:notice].present? %>
+      <div class="content-padded" style="background:lightskyblue">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:warning].present? %>
+      <div class="content-padded" style="background:tomato">
+        <%= flash[:warning] %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </div>
 

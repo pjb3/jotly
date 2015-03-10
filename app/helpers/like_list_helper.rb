@@ -1,8 +1,5 @@
 module LikeListHelper
   def like_list(jot)
-    liked_by_you =
-    'So many likes'.html_safe
-
     "Liked by #{full_suffix(jot).strip}.".html_safe
   end
 
