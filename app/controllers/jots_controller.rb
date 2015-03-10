@@ -26,7 +26,7 @@ class JotsController < ApplicationController
   end
 
   def jot_params
-    params.require(:jot).permit(:message)
+    params.require(:jot).permit(:message).merge(user: current_user)
   end
 
 

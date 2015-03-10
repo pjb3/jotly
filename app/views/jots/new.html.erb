@@ -1,9 +1,14 @@
-<h1> Make a jot </h1>
+<header class="bar bar-nav">
+  <a class="icon icon-left-nav pull-left" href= "<%= jots_path %>"></a>
+  <h1 class="title">Jotly</h1>
+</header>
 
 <%= form_for @jot do |f| %>
-
+  <div class= "content-padded">
     <%= f.label :message %>
-    <%= f.text_field :message %>
+    <%= f.text_field :message, placeholder: "jot away!" %>
 
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-positive btn-block' %>
+
+  </div>
 <% end %>
