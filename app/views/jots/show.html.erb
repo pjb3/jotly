@@ -1,0 +1,18 @@
+<header class="bar bar-nav">
+  <a class="icon icon-compose pull-right" href="<%= new_jot_path %>"></a>
+  <a class="icon icon-left-nav pull-left" href= "<%= jots_path %>"></a>
+  <h1 class="title">Jotly</h1>
+</header>
+
+<div class="content">
+  <div class ="content-padded">
+    <h2> <%= @jot.message %> </h2>
+      <p>
+        <small>
+          <h4> Authored by <%= @jot.user.name %> </h4>
+        </small>
+      </p>
+      <a href="<%= edit_jot_path(@jot) %>" class="btn btn-positive btn-block"> Edit </a>
+      <%= button_to 'Delete', jot_path(@jot), method: :delete, class: "btn btn-negative btn-block" %>
+  </div>
+</div>

@@ -3,12 +3,14 @@
   <h1 class="title">Jotly</h1>
 </header>
 
-<%= form_for @jot do |f| %>
-  <div class= "content-padded">
-    <%= f.label :message %>
-    <%= f.text_field :message, placeholder: "jot away!" %>
+<div class="content">
+  <%= form_for @jot do |f| %>
+    <div class= "content-padded">
+      <%= f.text_field :message, placeholder: "jot in here!" %>
 
-    <%= f.submit class: 'btn btn-positive btn-block' %>
+      <%= f.submit class: 'btn btn-positive btn-block' %>
 
-  </div>
-<% end %>
+    </div>
+
+  <% end %>
+</div>

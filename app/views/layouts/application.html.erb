@@ -18,6 +18,17 @@
     <h1 class="title">Jotly</h1>
   </header> -->
 
+  <nav class="bar bar-tab">
+  <a class="tab-item active" href="<%= new_user_path %>">
+    <span class="icon icon-person"></span>
+    <span class="tab-label">Profile</span>
+  </a>
+  <a class="tab-item" href=" <%= jots_path %>">
+    <span class="icon icon-list"></span>
+    <span class="tab-label">Jots</span>
+  </a>
+</nav>
+
 <%= yield %>
 
 </body>

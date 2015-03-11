@@ -1,5 +1,9 @@
 class JotsController < ApplicationController
 
+  def show
+    @jot = Jot.find(params[:id])
+  end
+
   def new
     @jot = Jot.new
   end
@@ -21,6 +25,13 @@ class JotsController < ApplicationController
   def update
     jot = Jot.find(params[:id])
     jot.update(jot_params)
+
+    redirect_to jots_path
+  end
+
+  def destroy
+    jot = Jot.find(params[:id])
+    jot.destroy
 
     redirect_to jots_path
   end
