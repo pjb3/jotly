@@ -1,9 +1,17 @@
-<h1> Edit this jot </h1>
 
-<%= form_for @jot do |f| %>
+<header class="bar bar-nav">
+  <a class="icon icon-left-nav pull-left" href= "<%= jots_path %>"></a>
+  <h1 class="title">Jotly</h1>
+</header>
 
-    <%= f.label :message %>
-    <%= f.text_field :message %>
+<div class="content">
+  <%= form_for @jot do |f| %>
+    <div class= "content-padded">
+      <%= f.text_field :message %>
 
-    <%= f.submit %>
-<% end %>
+      <%= f.submit class: 'btn btn-positive btn-block' %>
+
+    </div>
+
+  <% end %>
+</div>

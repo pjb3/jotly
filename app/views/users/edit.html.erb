@@ -5,14 +5,14 @@
 </header>
 
 <div class="content">
-  <%= form_for @user do |f| %>
+  <%= form_for current_user do |f| %>
     <div class= "content-padded">
       <p>
-        <%= f.text_field :name, placeholder: "Your name" %>
+        <%= f.text_field :name %>
       </p>
 
       <p>
-        <%= f.email_field :email, placeholder: "Your email" %>
+        <%= f.email_field :email %>
       </p>
 
       <%= f.submit 'Sign up now', class: 'btn btn-positive btn-block' %>
