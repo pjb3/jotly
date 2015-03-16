@@ -36,8 +36,11 @@ class JotsController < ApplicationController
     redirect_to jots_path
   end
 
+  private
   def jot_params
-    params.require(:jot).permit(:message).merge(user: current_user)
+    params.require(:jot).permit(
+      :message, :photo).merge(
+      user: current_user)
   end
 
 

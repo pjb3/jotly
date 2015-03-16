@@ -4,9 +4,10 @@
 </header>
 
 <div class="content">
-  <%= form_for @jot do |f| %>
+  <%= form_for @jot, html: {multipart: true} do |f| %>
     <div class= "content-padded">
       <%= f.text_field :message, placeholder: "jot in here!" %>
+      <%= f.file_field :photo %>
 
       <%= f.submit class: 'btn btn-positive btn-block' %>
 

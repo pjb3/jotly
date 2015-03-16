@@ -7,16 +7,19 @@
   <h1>Jots</h1>
 </div>
 
-<% @jots.each do |jot| %>
-  <ul class="table-view">
-    <li class="table-view-cell">
-      <a class="navigate-right" href= " <%= jot_path(jot) %>">
-        <%= jot.message %>
-        <p>
-          <small>
-            Authored by <%= jot.user.name %>
-          </small>
-        </p>
-      </a>
-    </li>
-<% end %>
+<div class="content-padded">
+  <% @jots.each do |jot| %>
+      <ul class="table-view">
+        <li class="table-view-cell">
+          <a class="navigate-right" href= " <%= jot_path(jot) %>">
+            <%= image_tag jot.photo.url(:medium) %>
+            <%= jot.message %>
+            <p>
+              <small>
+                Authored by <%= jot.user.name %>
+              </small>
+            </p>
+          </a>
+      </ul>
+  <% end %>
+</div>
