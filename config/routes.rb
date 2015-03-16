@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post :unlike
     end
   end
+  resources :followers, only: [:create, :destroy]
   resource :user, except: :destroy, controller: 'user'
   resource :session, only: [:new, :create, :destroy], controller: 'session'
 end

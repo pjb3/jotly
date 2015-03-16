@@ -10,6 +10,11 @@
     <small>
       Posted by: <%= jot_author_or_second_person(@jot) %>
     </small>
+    <% if following?(@jot.user) %>
+      <%= button_to "Unfollow", follower_path(following(@jot.user)), method: :delete %>
+    <% else %>
+      <%= button_to "Follow", followers_path, params: {user_id: @jot.user_id} %>
+    <% end %>
   </p>
 
   <p><%= like_list(@jot) %></p>

@@ -14,4 +14,20 @@
   </a>
 
   <%= button_to 'Sign-Out', session_path, class: 'destroy', method: :delete, data: {confirm: "Really sign-out?"} %>
+  <br>
+
+  Following:
+  <ul>
+    <% Follower.where(subscriber_id: current_user.id).each do |f| %>
+      <li><%= f.user.name %></li>
+    <% end %>
+  </ul>
+
+  Followed by:
+  <ul>
+    <% current_user.followers.each do |f| %>
+      <li><%= f.subscriber.name %></li>
+    <% end %>
+  </ul>
+
 </div>

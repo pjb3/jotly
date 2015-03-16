@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309035416) do
+ActiveRecord::Schema.define(version: 20150316223456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "followers", force: true do |t|
+    t.integer  "subscriber_id", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+  end
+
+  add_index "followers", ["subscriber_id", "user_id"], name: "index_followers_on_subscriber_id_and_user_id", unique: true, using: :btree
 
   create_table "jots", force: true do |t|
     t.string   "content"

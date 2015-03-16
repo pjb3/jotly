@@ -46,6 +46,16 @@ class JotsController < ApplicationController
   end
 
   private
+  def following(user)
+    @following ||= Follower.find_by(subscriber_id: current_user.id, user_id: user.id)
+  end
+  helper_method :following
+
+  def following?(user)
+    following(user).present?
+  end
+  helper_method :following?
+
   def can_edit?(jot)
     jot.user_id == current_user.id
   end
