@@ -7,7 +7,7 @@
   <h1>Jots</h1>
 </div>
 
-<div class="content-padded">
+<div class="content">
   <% @jots.each do |jot| %>
       <ul class="table-view">
         <li class="table-view-cell">
@@ -16,8 +16,13 @@
             <%= jot.message %>
             <p>
               <small>
-                Authored by <%= jot.user.name %>
+                Authored by <%= jot_author_or_other_person(jot) %>
               </small>
+            </p>
+              <small>
+                Liked by: <%= jot.likes.count %>
+              </small>
+
             </p>
           </a>
       </ul>

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       session[:current_user_id] = @user.id
       redirect_to jots_path
     else
-      redirect_to new_user_path
+      redirect_to new_users_path
     end
   end
 

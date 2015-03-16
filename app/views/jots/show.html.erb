@@ -9,8 +9,21 @@
     <h2> <%= @jot.message %> </h2>
       <p>
         <small>
-          <h4> Authored by <%= @jot.user.name %> </h4>
+          <h4> Authored by: <%= jot_author_or_other_person(@jot) %> </h4>
         </small>
+      </p>
+      <p>
+        <h4>Liked by:</h4>
+        <% @jot.likes.each do |like| %>
+          <%= like.user.name %>
+        <% end %>
+      </p>
+      <p>
+        <% if has_not_liked?(@jot) %>
+          <%= button_to 'Like', like_jot_path(@jot), class: 'btn btn-primary btn-outlined' %>
+        <% else %>
+          <%= button_to 'Unlike', unlike_jot_path(@jot), class: 'btn btn-primary btn-outlined' %>
+        <% end %>
       </p>
       <a href="<%= edit_jot_path(@jot) %>" class="btn btn-positive btn-block"> Edit </a>
       <%= button_to 'Delete', jot_path(@jot), method: :delete, class: "btn btn-negative btn-block" %>
