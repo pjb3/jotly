@@ -1,3 +1,18 @@
+<% content_for :head do %>
+  <script>
+  jQuery(function ($) {
+    console.log('Looking for location...')
+    $('.content').append('<p>Looking for location...</p>')
+    navigator.geolocation.getCurrentPosition(function(position){
+      console.log('Got location...')
+      $('.content').append('<p>Got location...</p>')
+      $('#jot_latitude').val(position.coords.latitude)
+      $('#jot_longitude').val(position.coords.longitude)
+    })
+  });
+  </script>
+<% end %>
+
 <header class="bar bar-nav">
   <a class="icon icon-left-nav pull-left" href= "<%= jots_path %>"></a>
   <h1 class="title">Jotly</h1>
@@ -7,6 +22,8 @@
   <%= form_for @jot, html: {multipart: true} do |f| %>
     <div class= "content-padded">
       <%= f.text_field :message, placeholder: "jot in here!" %>
+      <%= f.text_field :latitude %>
+      <%= f.text_field :longitude %>
       <%= f.file_field :photo %>
 
       <%= f.submit class: 'btn btn-positive btn-block' %>

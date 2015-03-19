@@ -70,7 +70,7 @@ class JotsController < ApplicationController
   private
   def jot_params
     params.require(:jot).permit(
-      :message, :photo).merge(
+      :message, :photo, :latitude, :longitude).merge(
       user: current_user)
   end
 
