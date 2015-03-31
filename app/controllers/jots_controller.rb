@@ -1,7 +1,51 @@
 class JotsController < ApplicationController
 
+  def index
+
+    respond_to do |format|
+
+      format.html { @jots = Jot.all  }
+
+      format.json do
+
+        # TODO: use lat/lon params to find jots nearby
+        if params[:lat].present? && params[:lon].present?
+          @jots = Jot.near([params[:lat], params[:lon]], 25)
+        else
+          @jots = Jot.all
+        end
+
+        data = @jots.map do |jot|
+          {
+            id: jot.id,
+            message: jot.message,
+            latitude: jot.latitude.to_f,
+            longitude: jot.longitude.to_f
+            photo_url: jot.photo.url(:)
+          }
+        end
+
+        #@jot
+
+        # Above code is equivalent to this:
+        # data = []
+        # @jots.each do |jot|
+        #   data << { id: jot.id, name: jot.message, latitude: jot.latitude, longitude: jot.longitude }
+        # end
+        # data
+
+        render json: data
+      end
+    end
+  end
+
   def show
     @jot = Jot.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @jot }
+    end
   end
 
   def new
@@ -12,10 +56,6 @@ class JotsController < ApplicationController
     @jot = Jot.create(jot_params)
 
     redirect_to jots_path
-  end
-
-  def index
-    @jots = Jot.all
   end
 
   def edit

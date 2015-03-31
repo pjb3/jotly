@@ -22,7 +22,7 @@
       </p>
       <p>
         <% if has_not_liked?(@jot) %>
-          <%= button_to 'Like', like_jot_path(@jot), class: 'btn btn-primary btn-outlined' %>
+          <%= button_to 'Like', like_jot_path(@jot), class: 'btn btn-primary btn-outlined', onclick: 'return confirm("Are you sure?")' %>
         <% else %>
           <%= button_to 'Unlike', unlike_jot_path(@jot), class: 'btn btn-primary btn-outlined' %>
         <% end %>
